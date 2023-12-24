@@ -13,7 +13,7 @@ def get_request(url, **kwargs):
         except:
             api_key = None
 
-        if api_key:
+        if api_key is not None:
             params = dict()
             params["text"] = kwargs["text"]
             params["version"] = kwargs["version"]
@@ -36,7 +36,6 @@ def get_request(url, **kwargs):
 
 
 # Create a `post_request` to make HTTP POST requests
-# e.g., response = requests.post(url, params=kwargs, json=payload)
 def post_request(url, json_payload, **kwargs):
     return requests.post(url, params=kwargs, json=json_payload)
 
